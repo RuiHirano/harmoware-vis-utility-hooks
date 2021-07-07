@@ -1,9 +1,17 @@
 # Harmoware Vis Utility Hooks
 Harmoware-Vis utility by react hooks.
 
+## HarmowareVis Properties Document
+Please see here.
+https://harmoware-vis.gitbook.io/harmoware-vis-documents/
 
-## Example
+## Provider
 
+| Name  |  Description                                          |
+| ---------- |  ---------------------------------------------------- |
+| HarmowareVisProvider |  The provider for HarmowareVis redux connection. |
+
+### Example
 App.tsx
 ```
 import './App.css';
@@ -22,6 +30,18 @@ function App() {
 
 export default App;
 ```
+
+## Hooks
+
+| Name  | Input    | Description                                          |
+| ---------- | ------- | ---------------------------------------------------- |
+| useHarmowareVis | {mapbox_token: string,viewport: Viewport, layers: Layer[]} | For HarmowareVis setting and rendeing |
+| useDepotsLayer  | {data: DepotsData} | For depots point rendering  |
+| useLineMapLayer  | {data: LineMapData} |  For line map rendering  |
+| useMovesLayer  | {data: MovedData} | For moves data rendering  |
+
+
+### Example
 
 HarmowareVis.tsx
 ```
