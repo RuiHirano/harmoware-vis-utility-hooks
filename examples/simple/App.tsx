@@ -1,6 +1,6 @@
 import './App.css';
-import { HarmowareVisProvider } from './provider/HarmowareProvider';
-import { HarmowareVisComponent } from './views';
+import { HarmowareVisProvider } from '../../src/provider/HarmowareProvider';
+import { HarmowareVisComponent } from './HarmowareVis';
 
 
 function App() {

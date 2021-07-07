@@ -1,16 +1,13 @@
 import React, { useContext } from 'react';
-import { useLineMapLayer } from '../hooks/LineMapLayerHook';
-import { useDepotsLayer } from '../hooks/DepotsLayerHook';
-import { useMovesLayer } from '../hooks/MovesLayerHook';
-import { useHarmowareVis } from '../hooks/HarmowareVisHook';
-import { HarmowareVisContext } from '../provider/HarmowareProvider';
+import { useLineMapLayer } from '../../src/hooks/LineMapLayerHook';
+import { useDepotsLayer } from '../../src/hooks/DepotsLayerHook';
+import { useMovesLayer } from '../../src/hooks/MovesLayerHook';
+import { useHarmowareVis } from '../../src/hooks/HarmowareVisHook';
 const MAPBOX_TOKEN = 'pxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxZA'
 
 
 
-const HarmowareVisComponent: React.FC = () => {
-  const { props: harmowareProps } = useContext(HarmowareVisContext);
-  console.log("proptest", harmowareProps)
+export const HarmowareVisComponent: React.FC = () => {
 
   const { setLineMapLayer } = useLineMapLayer({
     data: [  // line source & target
@@ -74,5 +71,3 @@ const HarmowareVisComponent: React.FC = () => {
     </div>
   );
 }
-
-export default HarmowareVisComponent
