@@ -15,11 +15,14 @@ export const useMovesLayer = (props: Props) => {
     const setMovesLayer = useCallback(() => {
         return (
             new MovesLayer({
-                movedData: props.data,
+                movedData: harmowareProps.movesbase,
                 routePaths: harmowareProps.routePaths,
-                movesbase: harmowareProps.movesbase,
+                movesbase: props.data,
                 clickedObject: harmowareProps.clickedObject,
-                actions: harmowareProps.actions
+                actions: harmowareProps.actions,
+                optionVisible: false,
+                getRadius: x => 0.5,
+                iconChange: false,
             })
         )
     }, [props.data])
