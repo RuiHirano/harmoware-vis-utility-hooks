@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { useLineMapLayer } from '../../src/hooks/LineMapLayerHook';
-import { useDepotsLayer } from '../../src/hooks/DepotsLayerHook';
-import { useMovesLayer } from '../../src/hooks/MovesLayerHook';
-import { useHarmowareVis } from '../../src/hooks/HarmowareVisHook';
+import { useLineMapLayer } from '../../../src/hooks/LineMapLayerHook'
+import { useDepotsLayer } from '../../../src/hooks/DepotsLayerHook'
+import { useMovesLayer } from '../../../src/hooks/MovesLayerHook'
+import { useHarmowareVis } from '../../../src/hooks/HarmowareVisHook'
 const MAPBOX_TOKEN = 'pxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxZA'
 
 

@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 import { MovesLayer } from 'harmoware-vis';
 import { HarmowareVisContext } from '../provider/HarmowareProvider';
 
@@ -7,7 +7,6 @@ interface Props {
     data: any
 }
 export const useMovesLayer = (props: Props) => {
-    const [data, setData] = useState<any | null>(props.data)
     const { props: harmowareProps } = useContext(HarmowareVisContext);
 
     useEffect(() => {
@@ -16,14 +15,14 @@ export const useMovesLayer = (props: Props) => {
     const setMovesLayer = useCallback(() => {
         return (
             new MovesLayer({
-                movedData: data,
+                movedData: props.data,
                 routePaths: harmowareProps.routePaths,
                 movesbase: harmowareProps.movesbase,
                 clickedObject: harmowareProps.clickedObject,
                 actions: harmowareProps.actions
             })
         )
-    }, [data])
+    }, [props.data])
 
     return { "setMovesLayer": setMovesLayer }
 }

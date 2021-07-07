@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext } from "react";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { getCombinedReducer, connectToHarmowareVis, Container, BasedState, BasedProps } from 'harmoware-vis';

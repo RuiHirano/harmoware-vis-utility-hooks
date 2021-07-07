@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { DepotsLayer } from 'harmoware-vis';
 
 
@@ -6,7 +6,6 @@ interface Props {
     data: any
 }
 export const useDepotsLayer = (props: Props) => {
-    const [data, setData] = useState<any | null>(props.data)
 
     useEffect(() => {
     }, [])
@@ -14,10 +13,10 @@ export const useDepotsLayer = (props: Props) => {
     const setDepotsLayer = useCallback(() => {
         return (
             new DepotsLayer({
-                depotsData: data,
+                depotsData: props.data,
             })
         )
-    }, [data])
+    }, [props.data])
 
     return { "setDepotsLayer": setDepotsLayer }
 }

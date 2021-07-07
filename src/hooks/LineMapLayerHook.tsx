@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { LineMapLayer } from 'harmoware-vis';
 
 
@@ -6,7 +6,6 @@ interface Props {
     data: any
 }
 export const useLineMapLayer = (props: Props) => {
-    const [data, setData] = useState<any | null>(props.data)
 
     useEffect(() => {
     }, [])
@@ -14,10 +13,10 @@ export const useLineMapLayer = (props: Props) => {
     const setLineMapLayer = useCallback(() => {
         return (
             new LineMapLayer({
-                data: data,
+                data: props.data,
             })
         )
-    }, [data])
+    }, [props.data])
 
     return { "setLineMapLayer": setLineMapLayer }
 }
