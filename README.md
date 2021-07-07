@@ -1,46 +1,103 @@
-# Getting Started with Create React App
+# Harmoware Vis Utility Hooks
+Harmoware-Vis utility by react hooks.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Example
 
-In the project directory, you can run:
+App.tsx
+```
+import './App.css';
+import { HarmowareVisProvider } from './provider/HarmowareProvider';
+import { HarmowareVisComponent } from './views';
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+function App() {
+  return (
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    <HarmowareVisProvider>
+      <HarmowareVisComponent />
+    </HarmowareVisProvider>
+  );
+}
 
-### `yarn test`
+export default App;
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+HarmowareVis.tsx
+```
 
-### `yarn build`
+import React, { useContext } from 'react';
+import { useLineMapLayer } from '../hooks/LineMapLayerHook';
+import { useDepotsLayer } from '../hooks/DepotsLayerHook';
+import { useMovesLayer } from '../hooks/MovesLayerHook';
+import { useHarmowareVis } from '../hooks/HarmowareVisHook';
+import { HarmowareVisContext } from '../provider/HarmowareProvider';
+const MAPBOX_TOKEN = 'pxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxifQ.xxxxxxxxxxxawxxxxA'
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const HarmowareVisComponent: React.FC = () => {
+  const { props: harmowareProps } = useContext(HarmowareVisContext);
+  console.log("proptest", harmowareProps)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  const { setLineMapLayer } = useLineMapLayer({
+    data: [  // line source & target
+      {
+        "sourcePosition": [136.978052, 35.152912, 0], // line start position (long,Lati,height)
+        "targetPosition": [136.981445, 35.157597, 0], // line end position (long,Lati,height)
+      },
+      {
+        "sourcePosition": [136.979052, 35.152912, 0], // line start position (long,Lati,height)
+        "targetPosition": [136.981445, 35.157597, 0], // line end position (long,Lati,height)
+      },
+      {
+        "path": [[136.977052, 35.152912, 0], // line path position (long,Lati,height)
+        [136.978052, 35.152912, 0]],
+        "dash ": [5, 2], // line pattern
+      },
+      {
+        "polygon": [[136.977052, 35.152812, 0], // polygon path position (long,Lati,height)
+        [136.976052, 35.152912, 0], [136.975052, 35.152312, 0]],
+        "elevation": 100, // 3-D object height
+      },
+      {
+        "coordinates": [[136.977752, 35.152212, 0], // coordinates path position (long,Lati,height)
+        [136.977852, 35.152512, 0]],
+      },
+    ]
+  })
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  const { setDepotsLayer } = useDepotsLayer({
+    data: [  // line source & target
+      {
+        "position": [136.978052, 35.152912, 0], // line start position (long,Lati,height)
+      },
+    ]
+  })
 
-### `yarn eject`
+  const { setMovesLayer } = useMovesLayer({
+    data: [],
+  })
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  const { renderHarmowareVis } = useHarmowareVis({
+    mapbox_token: MAPBOX_TOKEN,
+    layers: [
+      setLineMapLayer(),
+      setDepotsLayer(),
+      setMovesLayer(),
+    ],
+    viewport: {
+      longitude: 136.9831702,
+      latitude: 35.1562909,
+      width: window.screen.width,
+      height: window.screen.height,
+      zoom: 16
+    }
+  })
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+  return (
+    <div className="App">
+      {renderHarmowareVis()}
+    </div>
+  );
+}
+```
