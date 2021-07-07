@@ -4,7 +4,7 @@ import { useDepotsLayer } from '../hooks/DepotsLayerHook';
 import { useMovesLayer } from '../hooks/MovesLayerHook';
 import { useHarmowareVis } from '../hooks/HarmowareVisHook';
 import { HarmowareVisContext } from '../provider/HarmowareProvider';
-const MAPBOX_TOKEN = 'pk.eyJ1IjoicnVpaGlyYW5vIiwiYSI6ImNqdmc0bXJ0dTAzZDYzem5vMmk0ejQ0engifQ.3k045idIb4JNvawjppzqZA'
+const MAPBOX_TOKEN = 'pxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxZA'
 
 
 
