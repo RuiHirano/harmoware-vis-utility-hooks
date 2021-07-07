@@ -1,11 +1,14 @@
 # Harmoware Vis Utility Hooks
-Harmoware-Vis utility by react hooks.
+Harmoware-Vis utility for react hooks.
+This is wrapper library of HarmowareVIS(https://github.com/Harmoware/Harmoware-VIS/tree/master).
 
 ![image](https://user-images.githubusercontent.com/43264434/124740837-1ce6c780-df56-11eb-8e11-ec79c96ac10f.png)
 
-## HarmowareVis Properties Document
+## HarmowareVis Document
 Please see here.
 https://harmoware-vis.gitbook.io/harmoware-vis-documents/
+
+# Getting Started
 
 ## Provider
 
