@@ -10,7 +10,13 @@ https://harmoware-vis.gitbook.io/harmoware-vis-documents/
 
 # Getting Started
 
-## Provider
+## 1. Install
+```
+$ yarn add harmoware-vis-utility-hooks
+$ npm install harmoware-vis-utility-hooks
+```
+
+## 2. Connect Provider to HarmowareVis
 
 | Name  |  Description                                          |
 | ---------- |  ---------------------------------------------------- |
@@ -19,14 +25,11 @@ https://harmoware-vis.gitbook.io/harmoware-vis-documents/
 ### Example
 App.tsx
 ```
-import './App.css';
-import { HarmowareVisProvider } from './provider/HarmowareProvider';
-import { HarmowareVisComponent } from './views';
-
+import { HarmowareVisProvider } from 'harmoware-vis-utility-hooks'
+import { HarmowareVisComponent } from './HarmowareVis';
 
 function App() {
   return (
-
     <HarmowareVisProvider>
       <HarmowareVisComponent />
     </HarmowareVisProvider>
@@ -36,7 +39,7 @@ function App() {
 export default App;
 ```
 
-## Hooks
+## 3. Use custom hooks
 
 | Name  | Input    | Description                                          |
 | ---------- | ------- | ---------------------------------------------------- |
@@ -50,18 +53,15 @@ export default App;
 
 HarmowareVis.tsx
 ```
-
 import React, { useContext } from 'react';
-import { useLineMapLayer } from '../hooks/LineMapLayerHook';
-import { useDepotsLayer } from '../hooks/DepotsLayerHook';
-import { useMovesLayer } from '../hooks/MovesLayerHook';
-import { useHarmowareVis } from '../hooks/HarmowareVisHook';
-import { HarmowareVisContext } from '../provider/HarmowareProvider';
-const MAPBOX_TOKEN = 'pxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxifQ.xxxxxxxxxxxawxxxxA'
+import { useLineMapLayer } from 'harmoware-vis-utility-hooks'
+import { useDepotsLayer } from 'harmoware-vis-utility-hooks'
+import { useMovesLayer } from 'harmoware-vis-utility-hooks'
+import { useHarmowareVis } from 'harmoware-vis-utility-hooks'
+const MAPBOX_TOKEN = 'pk.eyJ1IjoicnVpaGlyYW5vIiwiYSI6ImNqdmc0bXJ0dTAzZDYzem5vMmk0ejQ0engifQ.3k045idIb4JNvawjppzqZA'
 
-const HarmowareVisComponent: React.FC = () => {
-  const { props: harmowareProps } = useContext(HarmowareVisContext);
-  console.log("proptest", harmowareProps)
+
+export const HarmowareVisComponent: React.FC = () => {
 
   const { setLineMapLayer } = useLineMapLayer({
     data: [  // line source & target
@@ -81,7 +81,7 @@ const HarmowareVisComponent: React.FC = () => {
       {
         "polygon": [[136.977052, 35.152812, 0], // polygon path position (long,Lati,height)
         [136.976052, 35.152912, 0], [136.975052, 35.152312, 0]],
-        "elevation": 100, // 3-D object height
+        "elevation": 10, // 3-D object height
       },
       {
         "coordinates": [[136.977752, 35.152212, 0], // coordinates path position (long,Lati,height)
