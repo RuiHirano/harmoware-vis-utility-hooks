@@ -54,10 +54,7 @@ export default App;
 HarmowareVis.tsx
 ```
 import React, { useContext } from 'react';
-import { useLineMapLayer } from 'harmoware-vis-utility-hooks'
-import { useDepotsLayer } from 'harmoware-vis-utility-hooks'
-import { useMovesLayer } from 'harmoware-vis-utility-hooks'
-import { useHarmowareVis } from 'harmoware-vis-utility-hooks'
+import { useLineMapLayer, useHarmowareVis, useMovesLayer, useDepotsLayer } from 'harmoware-vis-utility-hooks'
 const MAPBOX_TOKEN = 'pk.eyJ1IjoicnVpaGlyYW5vIiwiYSI6ImNqdmc0bXJ0dTAzZDYzem5vMmk0ejQ0engifQ.3k045idIb4JNvawjppzqZA'
 
 
