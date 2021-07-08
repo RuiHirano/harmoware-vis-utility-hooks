@@ -1,7 +1,7 @@
 {
   "name": "harmoware-vis-utility-hooks",
-  "version": "0.1.7",
-  "main": "src/dev/index.tsx",
+  "version": "0.1.14",
+  "main": "dist/index.js",
   "dependencies": {
     "@deck.gl/aggregation-layers": "^8.4.20",
     "@deck.gl/layers": "^8.4.20",
@@ -13,6 +13,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "harmoware-vis": "^1.7.5",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-map-gl": "^6.1.16",
@@ -24,10 +25,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "publish": "tsc"
+    "build": "tsc"
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +52,7 @@
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
     "ts-loader": "8.2.0",
+    "webpack": "^5.43.0",
     "webpack-cli": "^4.7.2"
   },
   "peerDependencies": {

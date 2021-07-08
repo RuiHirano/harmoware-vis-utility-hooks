@@ -1,5 +1,6 @@
 examples
 src
+dev
 node_modules/*
 .gitignore
 .babelrc
