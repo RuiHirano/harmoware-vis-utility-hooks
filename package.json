@@ -1,6 +1,6 @@
 {
   "name": "harmoware-vis-utility-hooks",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "src/dev/index.tsx",
   "dependencies": {
     "@deck.gl/aggregation-layers": "^8.4.20",
