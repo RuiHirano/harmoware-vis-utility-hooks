@@ -1,7 +1,7 @@
 {
   "name": "harmoware-vis-utility-hooks",
-  "version": "0.1.3",
-  "main": "dist/index.js",
+  "version": "0.1.6",
+  "main": "src/dev/index.tsx",
   "dependencies": {
     "@deck.gl/aggregation-layers": "^8.4.20",
     "@deck.gl/layers": "^8.4.20",
@@ -24,8 +24,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "publish": "npm publish --access=public",
-    "prepublishOnly": "tsc"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "publish": "tsc"
   },
   "eslintConfig": {
     "extends": [
