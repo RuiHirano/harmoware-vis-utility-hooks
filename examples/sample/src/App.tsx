@@ -1,5 +1,5 @@
 import './App.css';
-import { HarmowareVisProvider } from '../../../src/provider/HarmowareProvider';
+import { HarmowareVisProvider } from 'harmoware-vis-utility-hooks'
 import { HarmowareVisComponent } from './HarmowareVis';
 
 
